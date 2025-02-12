@@ -11,8 +11,10 @@ lib/ --
         |--models/  --> // Define models 
         |--server/  --> // In this folder we connect to server
         |--repositories/  --> // Define logic of server conversation
+        |--usecasese/ --> // multiple repository into one
       |--localization/  --> // Define localization
         |--app_localization  --> // Define localization
+      |routing --> // define routes
       |--utils/  -->  // Define some utils like theme
         |--theme/  --> // Define theme for my application
           |--color  --> // Define color of theme
@@ -108,7 +110,3 @@ Genraly Senario:
         not empty
 
 
-  don't forgot[
-    Show Modal Bottomsheet if not split screen and show dialog if split screen (To Large screen) to create title
-    Auto go to chat after create title
-  ]
