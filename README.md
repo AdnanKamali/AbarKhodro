@@ -1,7 +1,7 @@
 # abarkhodro_application
 
-*Notification
 Folder Structure
+
 lib/ --
       |--UI
         |--common/  --> // We define some common widget to use it to other widget
