@@ -33,6 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
             logout: () => context.go(Routes.login.path));
       },
     );
+    _authCubit.loginCheck();
   }
 
   @override
@@ -43,7 +44,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    _authCubit.loginCheck();
     return Scaffold(
       body: Center(
         child: Column(
