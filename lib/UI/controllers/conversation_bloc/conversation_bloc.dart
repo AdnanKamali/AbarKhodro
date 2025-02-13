@@ -46,14 +46,13 @@ class ConversationBloc extends Bloc<ConversationEvent, ConversationState> {
 
           response.fold(
             (l) => emit(ConversationState.error(failure: l)),
-            (r) async {
+            (r) {
               if (r.result.next != null) {
                 conversationPage = conversationPage! + 1;
               } else {
                 conversationPage = null;
               }
               conversationList.addAll(r.result.results);
-              await Future.delayed(Duration(seconds: 2));
               emit(
                 ConversationState.gotList(
                   paginationConversationList: conversationList,

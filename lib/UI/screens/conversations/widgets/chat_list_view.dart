@@ -22,17 +22,23 @@ class _PaginatedListViewState extends State<PaginatedListView> {
   void initState() {
     super.initState();
     _conversationBloc = context.read<ConversationBloc>();
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) {
+        if (MediaQuery.sizeOf(context).height > 900) {
+          _conversationBloc.add(ConversationEvent.getNextPage());
+        }
+      },
+    );
     _scrollController.addListener(_scrollListener);
   }
 
   // Listener for detecting when the user scrolls to the bottom
   void _scrollListener() {
-    if (_scrollController.position.extentAfter < 200) {
-      // If we reached the bottom, load more data
-
-      if (!_conversationBloc.state.maybeMap(
+    if (_scrollController.position.pixels ==
+        _scrollController.position.maxScrollExtent) {
+      if (!_conversationBloc.state.maybeWhen(
         orElse: () => false,
-        loadingForNext: (_) => true,
+        loadingForNext: () => true,
       )) {
         _conversationBloc.add(ConversationEvent.getNextPage());
       }
@@ -49,7 +55,7 @@ class _PaginatedListViewState extends State<PaginatedListView> {
   Widget build(BuildContext context) {
     return ListView.builder(
       controller: _scrollController,
-      itemCount: _conversationBloc.conversationList.length +
+      itemCount: widget.conversationList.length +
           (_conversationBloc.state.maybeMap(
             orElse: () => false,
             loadingForNext: (_) => true,
@@ -61,10 +67,11 @@ class _PaginatedListViewState extends State<PaginatedListView> {
           return Center(
               child: SizedBox(
             height: 20,
+            width: 20,
             child: CircularProgressIndicator(),
-          )); // Loading indicator
+          ));
         }
-        final conversation = _conversationBloc.conversationList[index];
+        final conversation = widget.conversationList[index];
 
         return ConversationTile(conversationModel: conversation);
       },

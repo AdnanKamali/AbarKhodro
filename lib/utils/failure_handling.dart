@@ -9,14 +9,7 @@ Widget? failureScreenHandling(
   BuildContext context, {
   required FailureResponse failureResponse,
 }) {
-  if (failureResponse.statusCode == ResponseStatusCode.unAuthorizedCode) {
-    return ErrorScreen(
-      assetLogoImage: Assets.authErrorLogo,
-      errorText: "در احراز هویت شما مشکل پیش آمده لطفا مجددا وارد شوید",
-      onTryText: "ورود مجدد",
-      onTryPressed: () => context.go(Routes.splash.path),
-    );
-  } else if (failureResponse.statusCode ==
+  if (failureResponse.statusCode ==
       ResponseStatusCode.maintainServerErrorCode) {
     return ErrorScreen(
       assetLogoImage: Assets.maintainErrorLogo,

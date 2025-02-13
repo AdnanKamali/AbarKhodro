@@ -53,7 +53,6 @@ class _SplitScreenState extends State<SplitScreen> {
         error: (failure) {
           if (failure.statusCode == ResponseStatusCode.unAuthorizedCode ||
               failure.statusCode == ResponseStatusCode.forbiddenCode) {
-            print("ERROR");
             context.read<AuthCubit>().loginCheck();
           }
           WidgetsBinding.instance.addPostFrameCallback((_) {
