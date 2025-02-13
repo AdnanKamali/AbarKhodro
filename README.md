@@ -78,12 +78,12 @@ Genraly Senario:
     1- server error and other error:
       TODO:
         after every request when get error show a snackbar and show the error message
-        and show a button to try again send request
+        
+        In login page not use snackbar, show bottom of fields
 
-        * In login page not use snackbar, show bottom of fields
     2- auth error:
       TODO:
-        when request and get auth error --> should check (verify) refresh token
+        when request and get auth error --> should check refresh token
         if is verify --> should get access token and try again
         if not verify --> remove all tokens and login again
     
@@ -92,8 +92,7 @@ Genraly Senario:
     We have four field on this application
     1- phone number
       valid: 
-        should 10 or 11 digits (only digits)
-        if 10 digits should start with 9
+        should  11 digits (only digits)
         if 11 digits should start with 09
 
     2- otp code
@@ -101,12 +100,7 @@ Genraly Senario:
         only digits
         should 6 digits
       
-    3- modal bottom sheet for create title
-      valid:
-        not empty
 
-    4- field for send message
-      valid:
-        not empty
+    other field should not be empty
 
 
