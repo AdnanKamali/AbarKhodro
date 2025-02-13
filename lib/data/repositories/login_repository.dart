@@ -12,6 +12,11 @@ class SendPhoneNumberRepository
     required this.authRemoteService,
   });
 
+  ///
+  /// [para] is
+  /// {
+  ///   "phone_number": +989179521462,
+  /// }
   @override
   Future<void> getDataRemoteServer({
     required Map<String, dynamic> para,
@@ -39,6 +44,12 @@ class SendOTPCodeRepository
     required this.sharedPreferencesService,
   });
 
+  ///
+  /// [para] is
+  /// {
+  ///   "phone_number": +989179521462,
+  ///   "code": "123456"
+  /// }
   @override
   Future<LoginTokenModel> getDataRemoteServer(
       {required Map<String, dynamic> para, String? token}) async {

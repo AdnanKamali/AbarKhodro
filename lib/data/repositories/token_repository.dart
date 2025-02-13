@@ -11,6 +11,8 @@ class GetTokensRepository extends IRepository<LoginTokenModel, String> {
     required this.sharedPreferencesService,
   });
 
+  ///
+  /// [para] is refresh token
   @override
   Future<LoginTokenModel> getDataRemoteServer({
     required String para,
@@ -42,6 +44,8 @@ class LogoutRepository extends IRepository<void, String> {
     required this.sharedPreferencesService,
   });
 
+  ///
+  /// [para] is refresh token
   @override
   Future<void> getDataRemoteServer({
     required String para,
@@ -60,10 +64,4 @@ class LogoutRepository extends IRepository<void, String> {
 
   @override
   String get error403CustomMessage => "";
-
-  @override
-  String get error404CustomMessage => "";
-
-  @override
-  String get error405CustomMessage => "";
 }

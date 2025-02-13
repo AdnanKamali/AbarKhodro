@@ -1,0 +1,38 @@
+                                //////  Splash Screen  ///////
+    ///////////////////////////////////--> Senario <--///////////////////////////////////////////////
+    // On Splash Screen at first check login it's mean -> we have refresh token in local and then  //
+    // get access token from server to save it to ram or else we redirect to login page            //
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+
+    
+                                //////  Login Screen  ///////
+    ///////////////////////////////////--> Senario <--///////////////////////////////////////////////
+    // Login screen have two steps                                                                 //
+    // 1- push your phone number and check local validate with class of Validation in utils        //
+    //  if validate is ok then send your phone number to server with LoginBloc state managment in  //
+    //  UI/controllers/login_bloc                                                                  //
+    //  if server response ok emit(LoginState.sendedOtp(phoneNumber: event.phoneNumber))           //
+    // 2- when state is sendedOtp disabled phone number field and show OTPCode field and for this  //
+    //  we have local validate with Validation same like phone number then send OTPCode to server  //
+    //  if ok then save refresh token to local and access to ram to use for requests and redirect  //
+    //  to home page                                                                               //
+    // -- when we have error from server emit(LoginState.error(errorMessage: errorMessage))        //
+    //  show on bottom of fields                                                                   //
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    
+                                //////  Home Screen  ///////
+    ///////////////////////////////////--> Senario <--///////////////////////////////////////////////
+    // In home screen we have two screen becuase maybe the screen Large so when large split screen //
+    // to two screen should be better UI                                                           //
+    // At the first we have chat title screen loading from server if server response code is       //
+    // between 500 to 504 we show ErrorScreen to know now have error from server should patient    //
+    // and later get back to application                                                           //
+    // We Controll the Chat Titles with ConversationBloc in UI/controllers/conversation_bloc.dart  //
+    // if we have more one pagination with scrolling can get next page and show it to screen       //
+    // when select a chat signal with ChatBloc at UI/controllers/chat_bloc.dart to get messages of //
+    // this conversation from server to show it and last but not least for last chat have          //
+    // writing animation like chat gpt                                                             //
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+

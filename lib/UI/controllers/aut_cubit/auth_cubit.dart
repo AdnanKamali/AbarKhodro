@@ -61,7 +61,6 @@ class AuthCubit extends Cubit<AuthState> {
   /// Get access token from server if failure then logout
   Future<void> getAccessTokenFromServer(String refreshToken) async {
     final response = await authUsecase.getTokens(refreshToken);
-    print(response);
     response.fold(
       (l) {
         if (l.statusCode == ResponseStatusCode.unAuthorizedCode ||
@@ -75,7 +74,6 @@ class AuthCubit extends Cubit<AuthState> {
         }
       },
       (r) {
-        print("OK GIVE ACCESS");
         registerAccessToken(r.result.access);
         setAuthenticated(refreshToken);
       },

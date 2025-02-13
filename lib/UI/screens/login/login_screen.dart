@@ -17,7 +17,6 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var headLineLarge = Theme.of(context).textTheme.headlineLarge;
-    // final fullWidth = MediaQuery.sizeOf(context).width;
 
     if (isSmartPhone(context)) {
       headLineLarge = headLineLarge!.copyWith(fontSize: 36);
